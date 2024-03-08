@@ -1,0 +1,66 @@
+{% extends "base.njk" %}
+
+{% block titulo %}Habitaciones | Editar habitación{% endblock %}
+
+{% block contenido %}
+    <div class="contenedor_formulario">
+        <h1>Editar habitación</h1>
+
+        {% if error %}
+            <div class="alert alert-danger">
+                <p> Error editando la habitación </p>
+            </div><hr>
+        {% endif %}
+
+        <form action="/habitaciones/edicion/{{ habitacion.id }}" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="_method" value="put">
+            <div class="contenedor_input">
+                <label for="numero">Número de habitación</label>
+                <input type="number" id="numero" name="numero" step="1" placeholder="Número de habitación..." value="{{ habitacion.numero | default('') }}">
+            </div>
+            {% if errores.numero %}
+                <div class="error">{{ errores.numero | safe }}</div>
+            {% endif %} <hr>
+
+            <div class="contenedor_input">
+                <label for="tipo">Tipo de habitación</label>
+                <select id="tipo" name="tipo">
+                    <option value="" disabled selected>Seleccione un tipo de habitación...</option>
+                    <option value="individual" {% if habitacion.tipo === 'individual' %} selected {% endif %}>Individual</option>
+                    <option value="doble" {% if habitacion.tipo === 'doble' %} selected {% endif %}>Doble</option>
+                    <option value="familiar" {% if habitacion.tipo === 'familiar' %} selected {% endif %}>Familiar</option>
+                    <option value="suite" {% if habitacion.tipo === 'suite' %} selected {% endif %}>Suite</option>
+                </select>
+            </div>
+            {% if errores.tipo %}
+            <div class="error">{{ errores.tipo | safe }}</div>
+            {% endif %}<hr>
+
+            <div class="contenedor_input">
+                <label for="descripcion">Descripción</label>
+                <textarea id="descripcion" name="descripcion">{{ habitacion.descripcion | default('') }}</textarea>
+            </div>
+            {% if errores.descripcion %}
+            <div class="error">{{ errores.descripcion | safe }}</div>
+            {% endif %}<hr>
+
+            <div class="contenedor_input">
+                <label for="precio">Precio</label>
+                <input type="number" id="precio" name="precio" step="0.01" value="{{ habitacion.precio | default('') }}">
+            </div>
+            {% if errores.precio %}
+            <div class="error">{{ errores.precio | safe }}</div>
+            {% endif %}<hr>
+
+            <div class="contenedor_input">
+                <label for="imagen">Imagen</label>
+                <input type="file" id="imagen" name="imagen" accept="image/*" placeholder="Imagen de la habitación"
+                       value="{{ habitacion.imagen | default('') }}">
+            </div><hr>
+
+            <div class="contenedor_boton">
+                <button type="submit">Guardar</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

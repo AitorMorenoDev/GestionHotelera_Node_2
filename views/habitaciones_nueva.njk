@@ -1,0 +1,64 @@
+{% extends "base.njk" %}
+
+{% block titulo %}Habitaciones | Nueva habitación{% endblock %}
+
+{% block contenido %}
+<div class="contenedor_formulario">
+    <h1>Insertar habitación</h1>
+
+    {% if error %}
+    <div class="alert alert-danger">
+            <p> Error insertando la habitación </p>
+    </div><hr>
+    {% endif %}
+
+    <form action="/habitaciones/" method="post" enctype="multipart/form-data">
+        <div class="contenedor_input">
+            <label for="numero">Número de habitación</label>
+            <input type="number" id="numero" name="numero" step="1" placeholder="Número de habitación..." value="{{ datos.numero | default('') }}">
+        </div>
+        {% if errores.numero %}
+                <div class="error">{{ errores.numero | safe }}</div>
+        {% endif %} <hr>
+
+        <div class="contenedor_input">
+            <label for="tipo">Tipo de habitación</label>
+            <select id="tipo" name="tipo">
+                <option value="" disabled selected>Seleccione un tipo de habitación...</option>
+                {% for tipo in tiposDeHabs %}
+                    <option value="{{ tipo }}" {% if datos.tipo === tipo %} selected {% endif %}>{{ tipo }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        {% if errores.tipo %}
+            <div class="error">{{ errores.tipo | safe }}</div>
+        {% endif %}<hr>
+
+        <div class="contenedor_input">
+            <label for="descripcion">Descripción</label>
+            <textarea id="descripcion" name="descripcion">{{ datos.descripcion | default('') }}</textarea>
+        </div>
+        {% if errores.descripcion %}
+            <div class="error">{{ errores.descripcion | safe }}</div>
+        {% endif %}<hr>
+
+        <div class="contenedor_input">
+            <label for="precio">Precio</label>
+            <input type="number" id="precio" name="precio" step="0.01" value="{{ datos.precio | default('') }}">
+        </div>
+        {% if errores.precio %}
+            <div class="error">{{ errores.precio | safe }}</div>
+        {% endif %}<hr>
+
+        <div class="contenedor_input">
+            <label for="imagen">Imagen</label>
+            <input type="file" id="imagen" name="imagen" accept="image/*" placeholder="Imagen de la habitación"
+                   value="{{ datos.imagen | default('') }}">
+        </div><hr>
+
+        <div class="contenedor_boton">
+            <button type="submit">Guardar</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

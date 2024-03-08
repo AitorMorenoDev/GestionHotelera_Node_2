@@ -1,0 +1,192 @@
+body {
+    font-family: Times New Roman, Times, serif
+}
+
+/* Habitaciones */
+/* region */
+.habitaciones-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+}
+
+.habitacion-card {
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(245, 245, 245);
+    box-shadow: 5px 5px 5px #ccc;
+}
+
+.imagen {
+    border-radius: 15px;
+    border: 1px solid darkgrey;
+    box-shadow: 5px 5px 5px #ccc;
+    margin-bottom: 10px;
+}
+/* endregion */
+
+/* Menu top */
+/* region */
+.menu-top {
+    justify-content: space-around;
+    align-items: start;
+    background-color: lightgray;
+    padding: 10px;
+    border: 1px dotted black;
+    margin-bottom: 20px;
+}
+
+.top-button {
+    background-color: darkgray;
+    border: 1px solid black;
+
+    &:hover {
+        background-color: black;
+        color: white;
+    }
+
+    a {
+        color: black;
+        text-decoration: none;
+    }
+}
+/*endregion */
+
+/* Incidencias */
+/* region */
+.incidencia {
+    font-size: 0.8em;
+    color: red;
+}
+
+.btn-cerrar {
+    background-color: red;
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px 15px;
+    margin: 5px;
+
+    &:hover {
+        background-color: darkred;
+    }
+}
+/*endregion */
+
+/* Formulario */
+/* region */
+.contenedor_formulario {
+    margin: 20px auto;
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    background-color: rgb(245, 245, 245);
+    box-shadow: 5px 5px 5px #ccc;
+}
+
+.contenedor {
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    background-color: rgb(245, 245, 245);
+    box-shadow: 5px 5px 5px #ccc;
+}
+
+.cont_botones {
+    display: inline-block;
+}
+
+.contenedor_formulario h1 {
+    text-align: center;
+}
+
+.contenedor_input {
+    margin-bottom: 15px;
+}
+
+.contenedor_input label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contenedor_input input,
+.contenedor_input select,
+.contenedor_input textarea {
+    width: 100%;
+    padding: 8px;
+}
+
+.contenedor_boton {
+    text-align: center;
+}
+
+.contenedor_boton button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* endregion */
+
+.error {
+    color: red;
+    font-size: 0.8em;
+}
+
+.btn-editar {
+    background-color: green;
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px 15px;
+    margin: 5px;
+
+    &:hover {
+        background-color: darkgreen;
+    }
+}
+
+/* Etiquetas */
+/* region */
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: blue;
+        color: white;
+
+        & a {
+            color: white;
+        }
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+    }
+}
+
+li {
+    list-style-type: none;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+h2 {
+    text-decoration: underline;
+}
+/* endregion */

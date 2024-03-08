@@ -1,0 +1,9 @@
+<div class="menu-top">
+    <button class="top-button"><a href="/habitaciones">Habitaciones</a></button>
+    {% if (session and session.login) %}
+        <button class="top-button"><a href="/habitaciones/nueva">Nueva habitación</a></button>
+        <button class="top-button"><a href="/auth/logout">Cerrar sesión</a></button>
+    {% else %}
+        <button class="top-button"><a href="/auth/login">Iniciar sesión</a></button>
+    {% endif %}
+</div>

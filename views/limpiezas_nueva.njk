@@ -1,0 +1,31 @@
+{% extends "base.njk" %}
+
+{% block titulo %}Limpiezas | Nueva limpieza{% endblock %}
+
+{% block contenido %}
+    <div class="contenedor_formulario">
+        <h1>Limpiezas de habitación {{ habitacion.numero }}</h1>
+
+        <form action="/limpiezas/{{ habitacion.id }}" method="post">
+            <div class="contenedor_input">
+                <label for="fecha">Fecha de limpieza</label>
+                <input type="date" id="fecha" name="fecha">
+            </div>
+            {% if errores.fecha %}
+                <div class="error">{{ errores.fecha | safe }}</div>
+            {% endif %} <hr>
+
+            <div class="contenedor_input">
+                <label for="observaciones">Observaciones</label>
+                <textarea id="observaciones" name="observaciones"></textarea>
+            </div>
+            {% if errores.observaciones %}
+                <div class="error">{{ errores.observaciones | safe }}</div>
+            {% endif %} <hr>
+
+            <div class="contenedor_boton">
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.njk" %}
+
+{% block titulo %}Limpiezas | Nueva limpieza{% endblock %}
+
+{% block contenido %}
+    <div class="contenedor_formulario">
+        <h1>Login</h1>
+
+    {% if error %}
+        <div class="alert alert-danger">
+            <p> {{ error.mensaje | safe }} </p>
+        </div><hr>
+    {% endif %}
+
+    <form action="/auth/login" method="post">
+        <div class="contenedor_input">
+            <label for="login">Usuario</label>
+            <input type="text" id="login" name="login" placeholder="Nombre de usuario..." value="usuario1">
+        </div>
+
+        <div class="contenedor_input">
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password" placeholder="Contraseña del usuario..." value="password1">
+        </div>
+
+        <div class="contenedor_boton">
+            <button type="submit" autofocus>Iniciar sesión</button>
+        </div>
+
+    </form>
+{% endblock %}
